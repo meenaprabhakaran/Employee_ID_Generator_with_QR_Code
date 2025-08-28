@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .qr-box {
+            display: inline-block;
+            padding: 20px;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, <span style="color:blue;">{{ user.name }}</span>!</h1>
+        <div class="qr-box">
+            <h3>Your QR Code</h3>
+            <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code">
+        </div>
+    </div>
+</body>
+</html>

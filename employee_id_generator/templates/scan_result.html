@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scan Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>QR Code Scan Result</h2>
+
+        {% if employee %}
+            <div class="employee-info">
+                <p><strong>Employee Name:</strong> {{ employee.name }}</p>
+                <p><strong>Employee ID:</strong> {{ employee.numeric_id }}</p>
+                <p><strong>Email:</strong> {{ employee.email }}</p>
+
+                {% if full_details %}
+                    <p><strong>Phone:</strong> {{ employee.phone }}</p>
+                    <p><strong>Address:</strong> {{ employee.address }}</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <p class="error">Invalid QR Code! Employee not found.</p>
+        {% endif %}
+
+        <a href="{{ url_for('dashboard') }}" class="btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>
